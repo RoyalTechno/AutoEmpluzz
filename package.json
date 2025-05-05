@@ -1,6 +1,18 @@
 {
+  "name": "autoply",
+  "version": "1.0.0",
+  "description": "Autoply Chrome extension to automate job applications",
+  "scripts": {
+    "dev": "vite",
+    "build": "vite build",
+    "preview": "vite preview"
+  },
   "dependencies": {
     "react": "^19.1.0",
     "react-dom": "^19.1.0"
+  },
+  "devDependencies": {
+    "vite": "^5.0.0",
+    "@vitejs/plugin-react": "^4.0.0"
   }
 }
