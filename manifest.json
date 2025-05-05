@@ -17,9 +17,9 @@
   "action": {
     "default_popup": "src/popup/index.html",
     "default_icon": {
-      "16": "public/icon.png",
-      "48": "icons/logo48.png",
-      "128": "icons/logo128.png"
+      "16": "public/Autoply Logo (16x16).png",
+      "48": "public/Autoply Logo (48x48).png",
+      "128": "public/Autoply Logo (128x128).png"
     }
   },
   "content_scripts": [
@@ -30,8 +30,8 @@
     }
   ],
   "icons": {
-    "16": "public/icon.png",
-    "48": "icons/logo48.png",
-    "128": "icons/logo128.png"
+    "16": "public/Autoply Logo (16x16).png",
+    "48": "public/Autoply Logo (48x48).png",
+    "128": "public/Autoply Logo (128x128).png"
   }
 }
