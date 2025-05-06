@@ -4,7 +4,7 @@
   "description": "Autoply Chrome extension to automate job applications",
   "scripts": {
     "dev": "vite",
-    "build": "vite build",
+    "build": "vite build && xcopy manifest.json dist\\ /Y",
     "preview": "vite preview"
   },
   "dependencies": {
