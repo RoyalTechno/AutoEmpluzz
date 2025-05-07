@@ -9,14 +9,21 @@ export default defineConfig({
     emptyOutDir: true,
     rollupOptions: {
       input: {
-        popup: resolve(__dirname, 'src/popup/index.html'),
-        content: resolve(__dirname, 'src/content/content.js')
+        'src/popup/popup': resolve(__dirname, 'src/popup/popup.html'),
+        'src/content/content': resolve(__dirname, 'src/content/content.js')
       },
       output: {
-        entryFileNames: (chunkInfo) =>
-          chunkInfo.name === 'content' ? 'content/[name].js' : 'popup/[name].js',
-        chunkFileNames: '[name]/[name].js',
-        assetFileNames: '[name]/[name].[ext]'
+        entryFileNames: (chunkInfo) => {
+          if (chunkInfo.name === 'src/content/content') {
+            return 'src/content/content.js';
+          }
+          if (chunkInfo.name === 'src/popup/popup') {
+            return 'src/popup/popup.js';
+          }
+          return '[name].js';
+        },
+        chunkFileNames: '[name].js',
+        assetFileNames: '[name].[ext]'
       }
     }
   }
