@@ -4,6 +4,7 @@
   "version": "1.0",
   "description": "Autoply automates job applications with smart autofill, resume optimization, and AI-generated cover letters.",
   "permissions": [
+    "activeTab", 
     "storage",
     "scripting",
     "tabs"

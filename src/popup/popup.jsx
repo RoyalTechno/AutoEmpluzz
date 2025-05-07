@@ -3,13 +3,17 @@ import React from 'react';
 export default function Popup() {
   function handleClick() {
     chrome.tabs.query({ active: true, currentWindow: true }, (tabs) => {
-      chrome.tabs.sendMessage(
-        tabs[0].id,
-        { action: 'AUTOFILL' },
-        (response) => {
-          console.log('✅ Autofill response:', response);
-        }
-      );
+      if (tabs[0].id) { 
+        chrome.tabs.sendMessage(tabs[0].id, { action: 'AUTOFILL' }, (response) => {
+          if (chrome.runtime.lastError) {
+            console.error("🚨 Error sending message:", chrome.runtime.lastError.message);
+          } else {
+            console.log('✅ Autofill response:', response);
+          }
+        });
+      } else {
+        console.error("🚨 No active tab found.");
+      }
     });
   }
   return (

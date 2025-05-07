@@ -10,12 +10,16 @@ export default defineConfig({
     rollupOptions: {
       input: {
         'src/popup/popup': resolve(__dirname, 'src/popup/popup.html'),
-        'src/content/content': resolve(__dirname, 'src/content/content.js')
+        'src/content/content': resolve(__dirname, 'src/content/content.js'),
+        'src/content/autofill': resolve(__dirname, 'src/content/autofill.js')
       },
       output: {
         entryFileNames: (chunkInfo) => {
           if (chunkInfo.name === 'src/content/content') {
             return 'src/content/content.js';
+          }
+          if (chunkInfo.name === 'src/content/autofill') {
+            return 'src/content/autofill.js';  
           }
           if (chunkInfo.name === 'src/popup/popup') {
             return 'src/popup/popup.js';
