@@ -5,17 +5,19 @@ import { resolve } from 'path';
 export default defineConfig({
   plugins: [react()],
   build: {
+    outDir: 'dist',
+    emptyOutDir: true,
     rollupOptions: {
       input: {
         popup: resolve(__dirname, 'src/popup/index.html'),
+        content: resolve(__dirname, 'src/content/content.js')
       },
       output: {
-        entryFileNames: 'popup/[name].js',
-        chunkFileNames: 'popup/[name].js',
-        assetFileNames: 'popup/[name].[ext]'
+        entryFileNames: (chunkInfo) =>
+          chunkInfo.name === 'content' ? 'content/[name].js' : 'popup/[name].js',
+        chunkFileNames: '[name]/[name].js',
+        assetFileNames: '[name]/[name].[ext]'
       }
-    },
-    outDir: 'dist',
-    emptyOutDir: true
+    }
   }
 });
